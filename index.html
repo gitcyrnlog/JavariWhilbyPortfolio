@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javari Whilby - Portfolio</title>
+    
+    <!-- Inline styles for basic layout and grid background pattern -->
+    <style>
+        /* Reset default browser styles */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Main body styling with grid background pattern */
+        body{
+            background-color: #D2D2D2;
+            /* Create subtle grid overlay pattern using repeating linear gradients */
+            background-image:
+            repeating-linear-gradient(
+                to right, transparent 0 100px,
+                #25283b22 100px 101px /* Vertical grid lines */
+            ),
+            repeating-linear-gradient(
+                to bottom, transparent 0 100px,
+                #25283b22 100px 101px /* Horizontal grid lines */
+            );
+        }
+        
+        /* Decorative background element positioned behind content */
+        body::before{
+            position: absolute;
+            width: min(1400px, 90vw); /* Responsive width with max constraint */
+            top: 10%;
+            left: 50%;
+            height: 90%;
+            transform: translateX(-50%); /* Center horizontally */
+            content: '';
+            background-image: url(images/bg.png); /* Background pattern image */
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: top center;
+            pointer-events: none; /* Allow clicks to pass through */
+        }
+    </style>
+    
+    <!-- External stylesheet for component styling -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-logo">JW</div>
+        <div class="nav-links">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#about" class="nav-link">About Me</a>
+            <a href="#proficiencies" class="nav-link">Proficiencies</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Banner Section -->
+    <section id="home" class="banner">
+        <!-- 3D Rotating Project Carousel - displays 4 featured projects in a cylinder formation -->
+        <div class="slider" style="--quantity: 4" id="projectSlider">
+            <!-- Project 1: E-Commerce Platform -->
+            <div class="item project-item" style="--position: 1" data-link="https://example.com/project1">
+                <div class="project-content">
+                    <div class="project-placeholder" data-project="E-Commerce Platform">
+                        <span class="placeholder-text">Project 1</span>
+                    </div>
+                    <!-- Overlay that appears on hover with project details -->
+                    <div class="project-overlay">
+                        <h3>E-Commerce Platform</h3>
+                        <p>Full-stack web application with React & Node.js</p>
+                        <span class="visit-link">Visit Project →</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 2: Task Management App -->
+            <div class="item project-item" style="--position: 2" data-link="https://example.com/project2">
+                <div class="project-content">
+                    <div class="project-placeholder" data-project="Task Management App">
+                        <span class="placeholder-text">Project 2</span>
+                    </div>
+                    <div class="project-overlay">
+                        <h3>Task Management App</h3>
+                        <p>Mobile-first React application with Firebase backend</p>
+                        <span class="visit-link">Visit Project →</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 3: WeatherNow -->
+            <div class="item project-item" style="--position: 3" data-link="https://weathernow.info">
+                <div class="project-content">
+                    <div class="project-placeholder" data-project="WeatherNow">
+                        <span class="placeholder-text">Project 3</span>
+                    </div>
+                    <div class="project-overlay">
+                        <h3>WeatherNow</h3>
+                        <p>Real-time weather data application built with JavaScript, HTML & CSS</p>
+                        <span class="visit-link">Visit Project →</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 4: Social Media Clone -->
+            <div class="item project-item" style="--position: 4" data-link="https://example.com/project4">
+                <div class="project-content">
+                    <div class="project-placeholder" data-project="Social Media Clone">
+                        <span class="placeholder-text">Project 4</span>
+                    </div>
+                    <div class="project-overlay">
+                        <h3>Social Media Clone</h3>
+                        <p>Instagram-like application with Python Django backend</p>
+                        <span class="visit-link">Visit Project →</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Hero Content - Name and title display -->
+        <div class="content">
+            <!-- Main name display with outlined text effect -->
+            <h1 data-content="Javari Whilby">
+                Javari Whilby
+            </h1>
+            <!-- Professional title and description -->
+            <div class="subtitle">
+                <h2>Software Engineering Student</h2>
+                <p>Passionate about creating innovative web solutions</p>
+            </div>
+            <!-- Placeholder for character model/avatar -->
+            <div class="model"></div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <!-- Grid layout for detailed project cards -->
+            <div class="projects-grid">
+                <!-- Project Card 1: E-Commerce Platform -->
+                <div class="project-card">
+                    <div class="project-card-placeholder" data-project="E-Commerce Platform">
+                        <span class="card-placeholder-text">Project Image 1</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>E-Commerce Platform</h3>
+                        <p>A full-featured e-commerce website built with React, Node.js, and MongoDB. Features include user authentication, shopping cart, payment integration, and admin dashboard.</p>
+                        <!-- Technology stack badges -->
+                        <div class="tech-stack">
+                            <span class="tech">React</span>
+                            <span class="tech">Node.js</span>
+                            <span class="tech">MongoDB</span>
+                            <span class="tech">Stripe</span>
+                        </div>
+                        <a href="https://example.com/project1" target="_blank" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <!-- Project Card 2: Task Management App -->
+                <div class="project-card">
+                    <div class="project-card-placeholder" data-project="Task Management App">
+                        <span class="card-placeholder-text">Project Image 2</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Task Management App</h3>
+                        <p>A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.</p>
+                        <div class="tech-stack">
+                            <span class="tech">React</span>
+                            <span class="tech">Firebase</span>
+                            <span class="tech">Material-UI</span>
+                            <span class="tech">JavaScript</span>
+                        </div>
+                        <a href="https://example.com/project2" target="_blank" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <!-- Project Card 3: WeatherNow -->
+                <div class="project-card">
+                    <div class="project-card-placeholder" data-project="WeatherNow">
+                        <span class="card-placeholder-text">Project Image 3</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>WeatherNow</h3>
+                        <p>A real-time weather data application that provides current weather conditions, forecasts, and location-based weather information with a clean, responsive interface.</p>
+                        <div class="tech-stack">
+                            <span class="tech">JavaScript</span>
+                            <span class="tech">HTML5</span>
+                            <span class="tech">CSS3</span>
+                            <span class="tech">Weather API</span>
+                        </div>
+                        <a href="https://weathernow.info" target="_blank" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <!-- Project Card 4: Social Media Clone -->
+                <div class="project-card">
+                    <div class="project-card-placeholder" data-project="Social Media Clone">
+                        <span class="card-placeholder-text">Project Image 4</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Social Media Clone</h3>
+                        <p>A social media platform clone with image sharing, real-time messaging, user profiles, and social interaction features.</p>
+                        <div class="tech-stack">
+                            <span class="tech">Django</span>
+                            <span class="tech">Python</span>
+                            <span class="tech">PostgreSQL</span>
+                            <span class="tech">WebSocket</span>
+                        </div>
+                        <a href="https://example.com/project4" target="_blank" class="project-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <!-- Personal introduction and background -->
+                <div class="about-text">
+                    <p>I'm a passionate Software Engineering student with a strong foundation in full-stack web development. I love creating innovative solutions that combine beautiful user interfaces with robust backend systems.</p>
+                    <p>Currently pursuing my degree in Software Engineering, I have hands-on experience with modern web technologies and frameworks. I'm always eager to learn new technologies and take on challenging projects that push my boundaries.</p>
+                    <p>When I'm not coding, you can find me exploring new tech trends, contributing to open-source projects, or working on personal coding challenges.</p>
+                </div>
+                <!-- Achievement statistics display -->
+                <div class="about-stats">
+                    <div class="stat">
+                        <h3>15+</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="stat">
+                        <h3>3+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat">
+                        <h3>10+</h3>
+                        <p>Technologies Mastered</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proficiencies Section -->
+    <section id="proficiencies" class="proficiencies-section">
+        <div class="container">
+            <h2 class="section-title">Proficiencies</h2>
+            <!-- Grid layout for skill categories with animated progress bars -->
+            <div class="skills-grid">
+                <!-- Frontend Technologies Category -->
+                <div class="skill-category">
+                    <h3>Frontend Technologies</h3>
+                    <!-- Individual skill items with progress bars -->
+                    <div class="skill-item">
+                        <span class="skill-name">JavaScript</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                        <span class="skill-percentage">90%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">React</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+                        <span class="skill-percentage">85%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Vue.js</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75%"></div>
+                        </div>
+                        <span class="skill-percentage">75%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">HTML/CSS</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="95%"></div>
+                        </div>
+                        <span class="skill-percentage">95%</span>
+                    </div>
+                </div>
+                
+                <!-- Backend Technologies Category -->
+                <div class="skill-category">
+                    <h3>Backend Technologies</h3>
+                    <div class="skill-item">
+                        <span class="skill-name">Node.js</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80%"></div>
+                        </div>
+                        <span class="skill-percentage">80%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Python</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+                        <span class="skill-percentage">85%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Django</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75%"></div>
+                        </div>
+                        <span class="skill-percentage">75%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Express.js</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="78%"></div>
+                        </div>
+                        <span class="skill-percentage">78%</span>
+                    </div>
+                </div>
+                
+                <!-- Databases & Tools Category -->
+                <div class="skill-category">
+                    <h3>Databases & Tools</h3>
+                    <div class="skill-item">
+                        <span class="skill-name">MongoDB</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80%"></div>
+                        </div>
+                        <span class="skill-percentage">80%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">PostgreSQL</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70%"></div>
+                        </div>
+                        <span class="skill-percentage">70%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Git/GitHub</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                        <span class="skill-percentage">90%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Docker</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="65%"></div>
+                        </div>
+                        <span class="skill-percentage">65%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-content">
+                <!-- Contact information and details -->
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology.</p>
+                    <!-- Contact details with icons -->
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <span>javari.whilby@email.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📱</span>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <span>Your City, Country</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">💼</span>
+                            <span>linkedin.com/in/javari-whilby</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Contact form for direct communication -->
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript for interactive functionality -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+
+        // Project slider hover functionality - pause animation on hover
+        const slider = document.getElementById('projectSlider');
+        const projectItems = document.querySelectorAll('.project-item');
+
+        projectItems.forEach(item => {
+            // Pause rotation when mouse enters project
+            item.addEventListener('mouseenter', () => {
+                slider.style.animationPlayState = 'paused';
+            });
+
+            // Resume rotation when mouse leaves project
+            item.addEventListener('mouseleave', () => {
+                slider.style.animationPlayState = 'running';
+            });
+
+            // Open project link when clicked
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const link = item.getAttribute('data-link');
+                if (link) {
+                    window.open(link, '_blank');
+                }
+            });
+        });
+
+        // Skill bar animations using Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        // Animate skill bars when section comes into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-progress');
+                    skillBars.forEach(bar => {
+                        const width = bar.getAttribute('data-width');
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 200);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // Observe proficiencies section for animations
+        const proficienciesSection = document.querySelector('.proficiencies-section');
+        if (proficienciesSection) {
+            observer.observe(proficienciesSection);
+        }
+
+        // Update active nav link based on scroll position
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            // Update active navigation link
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>

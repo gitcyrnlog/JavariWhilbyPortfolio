@@ -1,0 +1,892 @@
+/* Import custom fonts from CDN */
+@import url('https://fonts.cdnfonts.com/css/ica-rubrik-black');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+
+/* Global Styles */
+html {
+    scroll-behavior: smooth; /* Enable smooth scrolling for anchor links */
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Set default font family */
+}
+
+/* Container for consistent max-width and centering */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Styling for section titles throughout the site */
+.section-title {
+    font-family: 'ICA Rubrik';
+    font-size: 3em;
+    color: #25283B;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+/* Decorative underline for section titles */
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(45deg, #25283B, #d2d2d2);
+}
+
+/* Navigation Bar Styles */
+.navbar {
+    position: fixed; /* Keep navbar at top of viewport */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensure navbar stays above other content */
+    background: rgba(255, 255, 255, 0.98); /* More opaque white background */
+    backdrop-filter: blur(20px); /* Stronger glassmorphism effect */
+    padding: 1.2rem 0; /* Slightly more padding */
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(37, 40, 59, 0.08);
+    box-shadow: 0 2px 20px rgba(37, 40, 59, 0.08); /* Subtle shadow for depth */
+}
+
+/* Navbar layout - flexbox for horizontal alignment */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px; /* Wider container for better spacing */
+    margin: 0 auto;
+    padding: 0 3rem; /* More padding for better spacing */
+}
+
+/* Logo styling with custom font - moved more to the left */
+.nav-logo {
+    font-family: 'ICA Rubrik';
+    font-size: 2.5rem; /* Slightly larger */
+    font-weight: 900; /* Bolder weight */
+    color: #25283B;
+    text-decoration: none;
+    letter-spacing: -0.02em; /* Tighter letter spacing */
+    margin-right: auto; /* Push to far left */
+    background: linear-gradient(135deg, #25283B 0%, #1a1d2e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.3s ease;
+}
+
+.nav-logo:hover {
+    transform: scale(1.05);
+}
+
+/* Navigation links container - higher quality styling */
+.nav-links {
+    display: flex;
+    gap: 2.5rem; /* More spacing between items */
+    list-style: none;
+    background: rgba(37, 40, 59, 0.03); /* Very subtle background */
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px; /* Pill shape */
+    border: 1px solid rgba(37, 40, 59, 0.08);
+}
+
+/* Individual navigation link styling - premium feel */
+.nav-link {
+    color: #25283B;
+    text-decoration: none;
+    font-weight: 600; /* Bolder weight */
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth easing */
+    position: relative;
+    padding: 0.75rem 1.2rem;
+    border-radius: 25px;
+    letter-spacing: 0.3px;
+}
+
+/* Enhanced hover and active effects */
+.nav-link:hover {
+    color: white;
+    background: linear-gradient(135deg, #25283B 0%, #1a1d2e 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 40, 59, 0.2);
+}
+
+.nav-link.active {
+    color: white;
+    background: linear-gradient(135deg, #25283B 0%, #1a1d2e 100%);
+    box-shadow: 0 2px 8px rgba(37, 40, 59, 0.15);
+}
+
+/* Remove the old underline effect */
+.nav-link::after {
+    display: none;
+}
+
+/* Banner Section - Main hero area with 3D carousel */
+.banner{
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    padding-top: 80px; /* Account for fixed navbar */
+}
+
+/* 3D Rotating Project Carousel */
+.banner .slider{
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    top: 15%;
+    left: calc(50% - 100px); /* Center horizontally */
+    transform-style: preserve-3d; /* Enable 3D transforms */
+    transform: perspective(1000px);
+    animation: autoRun 20s linear infinite; /* Continuous rotation */
+    z-index: 2;
+}
+
+/* Keyframe animation for 360-degree rotation */
+@keyframes autoRun{
+    from{
+        transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+    }to{
+        transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+    }
+}
+
+/* Individual carousel items positioned in 3D space */
+.banner .slider .item{
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: 
+        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        translateZ(400px); /* Distance from center of cylinder - reduced for narrower rotation */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect - move item slightly forward */
+.banner .slider .item:hover {
+    transform: 
+        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        translateZ(430px);
+}
+
+/* Project content wrapper with styling */
+.project-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Project images styling */
+.banner .slider .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio while filling container */
+    transition: transform 0.3s ease;
+}
+
+/* Project overlay that appears on hover */
+.project-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(37, 40, 59, 0.9)); /* Gradient overlay */
+    color: white;
+    padding: 20px;
+    transform: translateY(100%); /* Hidden by default */
+    transition: transform 0.3s ease;
+}
+
+/* Show overlay on project hover */
+.project-item:hover .project-overlay {
+    transform: translateY(0);
+}
+
+/* Overlay text styling */
+.project-overlay h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.project-overlay p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 10px;
+}
+
+/* Visit link styling */
+.visit-link {
+    display: inline-block;
+    color: #d2d2d2;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.visit-link:hover {
+    color: white;
+}
+
+/* Main content area below carousel */
+.banner .content{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1400px, 100vw);
+    height: max-content;
+    padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+/* Main heading with special text effect */
+.banner .content h1{
+    font-family: 'ICA Rubrik';
+    font-size: 16em;
+    line-height: 1em;
+    color: #25283B;
+    position: relative;
+}
+
+/* Create outlined text effect using pseudo-element */
+.banner .content h1::after{
+    position: absolute;
+    inset: 0 0 0 0;
+    content: attr(data-content);
+    z-index: 2;
+    -webkit-text-stroke: 2px #d2d2d2; /* Text outline */
+    color: transparent;
+}
+
+/* Subtitle section styling */
+.subtitle {
+    text-align: center;
+    margin-top: 2rem;
+    color: #25283B;
+}
+
+.subtitle h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.subtitle p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+/* Character model placeholder */
+.banner .content .model{
+    background-image: url();
+    width: 100%;
+    height: 75vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-size: auto 130%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    z-index: 1;
+}
+
+/* Projects Section Styles */
+.projects-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+}
+
+/* Grid layout for project cards */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+/* Individual project card styling */
+.project-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for project cards */
+.project-card:hover {
+    transform: translateY(-10px); /* Lift effect */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Project information container */
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    font-size: 1.3rem;
+    color: #25283B;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.project-info p {
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* Technology stack badges */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tech {
+    background: #25283B;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Project link button styling */
+.project-link {
+    display: inline-block;
+    background: linear-gradient(45deg, #25283B, #4a4d6b);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 40, 59, 0.3);
+}
+
+/* About Section Styles */
+.about-section {
+    padding: 5rem 0;
+    background: white;
+}
+
+/* Two-column layout for about content */
+.about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-text p {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+/* Statistics display */
+.about-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Individual statistic styling */
+.stat {
+    text-align: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    border-left: 4px solid #25283B; /* Accent border */
+}
+
+.stat h3 {
+    font-size: 2.5rem;
+    color: #25283B;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.stat p {
+    color: #666;
+    font-weight: 500;
+}
+
+/* Proficiencies Section Styles */
+.proficiencies-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+}
+
+/* Grid for skill categories */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+/* Skill category container */
+.skill-category {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.skill-category h3 {
+    color: #25283B;
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Individual skill item layout */
+.skill-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+}
+
+.skill-name {
+    min-width: 100px;
+    font-weight: 500;
+    color: #25283B;
+}
+
+/* Skill progress bar container */
+.skill-bar {
+    flex: 1;
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Animated progress bar fill */
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(45deg, #25283B, #4a4d6b);
+    border-radius: 4px;
+    width: 0%; /* Start at 0, animate to data-width value */
+    transition: width 1.5s ease-in-out;
+}
+
+.skill-percentage {
+    min-width: 40px;
+    text-align: right;
+    font-weight: 600;
+    color: #25283B;
+}
+
+/* Contact Section Styles */
+.contact-section {
+    padding: 5rem 0;
+    background: white;
+}
+
+/* Two-column layout for contact content */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.contact-info h3 {
+    color: #25283B;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.contact-info p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Contact details container */
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Individual contact item styling */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.contact-icon {
+    font-size: 1.2rem;
+}
+
+/* Contact form styling */
+.contact-form {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* Form input and textarea styling */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+/* Focus state for form elements */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #25283B;
+}
+
+/* Submit button styling */
+.submit-btn {
+    background: linear-gradient(45deg, #25283B, #4a4d6b);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 40, 59, 0.3);
+}
+
+/* Project placeholder styling for 3D carousel - Enhanced design */
+.project-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1d2e 0%, #25283B 50%, #2c3049 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Dynamic site name display */
+.project-placeholder::before {
+    content: attr(data-project);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'ICA Rubrik';
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    z-index: 3;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+/* Geometric pattern overlay */
+.project-placeholder::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(45deg, rgba(255,255,255,0.03) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255,255,255,0.03) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.03) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.03) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+/* Hide the old placeholder text */
+.placeholder-text {
+    display: none;
+}
+
+/* Project card placeholder styling - Enhanced with site themes */
+.project-card-placeholder {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px 15px 0 0;
+    transition: all 0.3s ease;
+}
+
+/* E-Commerce Platform theme */
+.project-card-placeholder[data-project="E-Commerce Platform"] {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+/* Task Management App theme */
+.project-card-placeholder[data-project="Task Management App"] {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+/* WeatherNow theme */
+.project-card-placeholder[data-project="WeatherNow"] {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+}
+
+/* Social Media Clone theme */
+.project-card-placeholder[data-project="Social Media Clone"] {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: white;
+}
+
+/* Site name display for cards */
+.project-card-placeholder::before {
+    content: attr(data-project);
+    font-family: 'ICA Rubrik';
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 3;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    padding: 0 1rem;
+}
+
+/* Decorative elements for cards */
+.project-card-placeholder::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: rotate(45deg);
+    pointer-events: none;
+}
+
+/* Hide the old card placeholder text */
+.card-placeholder-text {
+    display: none;
+}
+
+/* Enhanced hover effects for project cards */
+.project-card:hover .project-card-placeholder {
+    transform: scale(1.05);
+}
+
+/* Add subtle animation to placeholders */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+.project-placeholder {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Stagger the animation for different projects */
+.project-item[style*="--position: 1"] .project-placeholder {
+    animation-delay: 0s;
+}
+
+.project-item[style*="--position: 2"] .project-placeholder {
+    animation-delay: 1.5s;
+}
+
+.project-item[style*="--position: 3"] .project-placeholder {
+    animation-delay: 3s;
+}
+
+.project-item[style*="--position: 4"] .project-placeholder {
+    animation-delay: 4.5s;
+}
+
+/* Responsive Design - Tablet breakpoint */
+@media screen and (max-width: 1023px) {
+    .banner .slider{
+        width: 160px;
+        height: 200px;
+        left: calc(50% - 80px);
+    }
+    .banner .slider .item{
+        transform: 
+            rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(250px); /* Narrower rotation for tablet */
+    }
+    .banner .content h1{
+        text-align: center;
+        width: 100%;
+        text-shadow: 0 10px 20px #000;
+        font-size: 7em;
+    }
+    
+    /* Adjust navbar for tablet */
+    .navbar {
+        padding: 0 2rem;
+    }
+    
+    .nav-links {
+        gap: 1.5rem;
+        padding: 0.6rem 1rem;
+    }
+    
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+    }
+    
+    /* Switch to single column layouts */
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile breakpoint */
+@media screen and (max-width: 767px) {
+    /* Further reduce carousel size */
+    .banner .slider{
+        width: 100px;
+        height: 150px;
+        left: calc(50% - 50px);
+    }
+    .banner .slider .item{
+        transform: 
+            rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(150px); /* Even narrower rotation for mobile */
+    }
+    .banner .content h1{
+        font-size: 5em;
+    }
+    
+    /* Enhanced mobile navbar */
+    .navbar {
+        padding: 1rem 1.5rem;
+        flex-direction: column;
+        gap: 1.2rem;
+        background: rgba(255, 255, 255, 0.98);
+    }
+    
+    .nav-logo {
+        font-size: 2.2rem;
+        margin-right: 0;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+        padding: 0.5rem 0.8rem;
+        background: rgba(37, 40, 59, 0.05);
+        border-radius: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .nav-link {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.8rem;
+    }
+    
+    /* Adjust typography and layouts for mobile */
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Horizontal stats layout on mobile */
+    .about-stats {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    
+    .subtitle h2 {
+        font-size: 1.8rem;
+    }
+    
+    .subtitle p {
+        font-size: 1rem;
+    }
+    
+    /* Mobile-specific project card adjustments */
+    .project-card-placeholder::before {
+        font-size: 1.2rem;
+    }
+}
