@@ -44,13 +44,29 @@
             background-position: top center;
             pointer-events: none; /* Allow clicks to pass through */
         }
+
+        /* Premium scroll indicator styles */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #4caf50, #81c784);
+            z-index: 1000;
+            pointer-events: none;
+        }
     </style>
     
     <!-- External stylesheet for component styling -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <!-- Navigation Bar -->
+    <!-- Premium scroll progress indicator -->
+    <div class="scroll-indicator"></div>
+
+    <!-- Header Navigation - Fixed position navbar with premium styling -->
     <nav class="navbar">
         <div class="nav-logo">JW</div>
         <div class="nav-links">
@@ -70,13 +86,11 @@
             <div class="item project-item" style="--position: 1" data-link="https://example.com/project1">
                 <div class="project-content">
                     <div class="project-placeholder" data-project="E-Commerce Platform">
-                        <span class="placeholder-text">Project 1</span>
-                    </div>
-                    <!-- Overlay that appears on hover with project details -->
-                    <div class="project-overlay">
-                        <h3>E-Commerce Platform</h3>
-                        <p>Full-stack web application with React & Node.js</p>
-                        <span class="visit-link">Visit Project →</span>
+                        <div class="project-info-card">
+                            <h3 class="project-title">E-Commerce Platform</h3>
+                            <p class="project-description">Full-stack web application</p>
+                            <div class="project-tech">React • Node.js • MongoDB</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -84,12 +98,11 @@
             <div class="item project-item" style="--position: 2" data-link="https://example.com/project2">
                 <div class="project-content">
                     <div class="project-placeholder" data-project="Task Management App">
-                        <span class="placeholder-text">Project 2</span>
-                    </div>
-                    <div class="project-overlay">
-                        <h3>Task Management App</h3>
-                        <p>Mobile-first React application with Firebase backend</p>
-                        <span class="visit-link">Visit Project →</span>
+                        <div class="project-info-card">
+                            <h3 class="project-title">Task Management</h3>
+                            <p class="project-description">Mobile-first productivity app</p>
+                            <div class="project-tech">React • Firebase • PWA</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -97,12 +110,11 @@
             <div class="item project-item" style="--position: 3" data-link="https://weathernow.info">
                 <div class="project-content">
                     <div class="project-placeholder" data-project="WeatherNow">
-                        <span class="placeholder-text">Project 3</span>
-                    </div>
-                    <div class="project-overlay">
-                        <h3>WeatherNow</h3>
-                        <p>Real-time weather data application built with JavaScript, HTML & CSS</p>
-                        <span class="visit-link">Visit Project →</span>
+                        <div class="project-info-card">
+                            <h3 class="project-title">WeatherNow</h3>
+                            <p class="project-description">Real-time weather data</p>
+                            <div class="project-tech">JavaScript • API • CSS</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -110,12 +122,11 @@
             <div class="item project-item" style="--position: 4" data-link="https://example.com/project4">
                 <div class="project-content">
                     <div class="project-placeholder" data-project="Social Media Clone">
-                        <span class="placeholder-text">Project 4</span>
-                    </div>
-                    <div class="project-overlay">
-                        <h3>Social Media Clone</h3>
-                        <p>Instagram-like application with Python Django backend</p>
-                        <span class="visit-link">Visit Project →</span>
+                        <div class="project-info-card">
+                            <h3 class="project-title">Social Media Clone</h3>
+                            <p class="project-description">Instagram-like platform</p>
+                            <div class="project-tech">Django • Python • PostgreSQL</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -476,10 +487,19 @@
             observer.observe(proficienciesSection);
         }
 
-        // Update active nav link based on scroll position
+        // Update active nav link based on scroll position and scroll indicator
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-link');
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            
+            // Update scroll progress indicator
+            if (scrollIndicator) {
+                const scrollTop = window.pageYOffset;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                scrollIndicator.style.transform = `scaleX(${scrollPercent / 100})`;
+            }
             
             let current = '';
             sections.forEach(section => {
