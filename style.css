@@ -71,7 +71,7 @@ body {
     padding: 0 3rem; /* More padding for better spacing */
 }
 
-/* Logo styling with custom font - moved more to the left */
+/* Logo styling with custom font */
 .nav-logo {
     font-family: 'ICA Rubrik';
     font-size: 2.5rem; /* Slightly larger */
@@ -790,27 +790,27 @@ body {
     transition: all 0.3s ease;
 }
 
-/* E-Commerce Platform theme */
-.project-card-placeholder[data-project="E-Commerce Platform"] {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+/* BelieveInTheDesigns theme */
+.project-card-placeholder[data-project="BelieveInTheDesigns"] {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
     color: white;
 }
 
-/* Task Management App theme */
-.project-card-placeholder[data-project="Task Management App"] {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+/* Visitix theme */
+.project-card-placeholder[data-project="Visitix"] {
+    background: linear-gradient(135deg, #f59e0b 0%, #f97316 50%, #ef4444 100%);
     color: white;
 }
 
 /* WeatherNow theme */
 .project-card-placeholder[data-project="WeatherNow"] {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 50%, #3b82f6 100%);
     color: white;
 }
 
-/* Social Media Clone theme */
-.project-card-placeholder[data-project="Social Media Clone"] {
-    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+/* Stadium876 theme */
+.project-card-placeholder[data-project="Stadium876"] {
+    background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
     color: white;
 }
 

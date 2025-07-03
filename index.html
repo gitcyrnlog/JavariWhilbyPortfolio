@@ -25,7 +25,7 @@
             ),
             repeating-linear-gradient(
                 to bottom, transparent 0 100px,
-                #25283b22 100px 101px /* Horizontal grid lines */
+                #25283b22 100px   101px /* Horizontal grid lines */
             );
         }
         
@@ -56,6 +56,113 @@
             z-index: 1000;
             pointer-events: none;
         }
+
+        /* Enhanced 3D carousel card styling */
+        .project-placeholder {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #25283B 0%, #2d3142 50%, #3a3d56 100%);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 10px 30px rgba(37, 40, 59, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .project-info-card {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 16px;
+            background: linear-gradient(to top, rgba(37, 40, 59, 0.95), rgba(37, 40, 59, 0.7));
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-title {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 11px;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .project-tech {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 9px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        /* Project-specific color themes */
+        .project-placeholder[data-project="BelieveInTheDesigns"] {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+        }
+
+        .project-placeholder[data-project="Visitix"] {
+            background: linear-gradient(135deg, #f59e0b 0%, #f97316 50%, #ef4444 100%);
+        }
+
+        .project-placeholder[data-project="WeatherNow"] {
+            background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 50%, #3b82f6 100%);
+        }
+
+        .project-placeholder[data-project="Stadium876"] {
+            background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+        }
+
+        /* Enhanced My Projects section card styling */
+        .project-card-placeholder {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #25283B 0%, #2d3142 50%, #3a3d56 100%);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 10px 30px rgba(37, 40, 59, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-placeholder-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Project-specific color themes for My Projects section */
+        .project-card-placeholder[data-project="BelieveInTheDesigns"] {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+        }
+
+        .project-card-placeholder[data-project="Visitix"] {
+            background: linear-gradient(135deg, #f59e0b 0%, #f97316 50%, #ef4444 100%);
+        }
+
+        .project-card-placeholder[data-project="WeatherNow"] {
+            background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 50%, #3b82f6 100%);
+        }
+
+        .project-card-placeholder[data-project="Stadium876"] {
+            background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+        }
     </style>
     
     <!-- External stylesheet for component styling -->
@@ -82,26 +189,30 @@
     <section id="home" class="banner">
         <!-- 3D Rotating Project Carousel - displays 4 featured projects in a cylinder formation -->
         <div class="slider" style="--quantity: 4" id="projectSlider">
-            <!-- Project 1: E-Commerce Platform -->
+            <!-- Project 1: BelieveInTheDesigns -->
             <div class="item project-item" style="--position: 1" data-link="https://example.com/project1">
                 <div class="project-content">
-                    <div class="project-placeholder" data-project="E-Commerce Platform">
+                    <div class="project-placeholder" data-project="BelieveInTheDesigns">
+                        <!-- Decorative SVG graphic -->
+                        <svg width="100%" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:0;left:0;"><ellipse cx="100" cy="30" rx="90" ry="20" fill="#38bdf8" fill-opacity="0.18"/><ellipse cx="100" cy="30" rx="60" ry="12" fill="#6366f1" fill-opacity="0.12"/></svg>
                         <div class="project-info-card">
-                            <h3 class="project-title">E-Commerce Platform</h3>
-                            <p class="project-description">Full-stack web application</p>
-                            <div class="project-tech">React • Node.js • MongoDB</div>
+                            <h3 class="project-title">BelieveInTheDesigns</h3>
+                            <p class="project-description">E-commerce platform</p>
+                            <div class="project-tech">TypeScript • Firebase • Tailwind CSS</div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Project 2: Task Management App -->
+            <!-- Project 2: Visitix -->
             <div class="item project-item" style="--position: 2" data-link="https://example.com/project2">
                 <div class="project-content">
-                    <div class="project-placeholder" data-project="Task Management App">
+                    <div class="project-placeholder" data-project="Visitix">
+                        <!-- Decorative SVG graphic -->
+                        <svg width="100%" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:0;left:0;"><rect x="30" y="10" width="140" height="40" rx="20" fill="#f59e42" fill-opacity="0.18"/><rect x="60" y="20" width="80" height="20" rx="10" fill="#f43f5e" fill-opacity="0.12"/></svg>
                         <div class="project-info-card">
-                            <h3 class="project-title">Task Management</h3>
-                            <p class="project-description">Mobile-first productivity app</p>
-                            <div class="project-tech">React • Firebase • PWA</div>
+                            <h3 class="project-title">Visitix</h3>
+                            <p class="project-description">Online ticketing platform</p>
+                            <div class="project-tech">TypeScript • Firebase • Tailwind CSS</div>
                         </div>
                     </div>
                 </div>
@@ -110,22 +221,26 @@
             <div class="item project-item" style="--position: 3" data-link="https://weathernow.info">
                 <div class="project-content">
                     <div class="project-placeholder" data-project="WeatherNow">
+                        <!-- Decorative SVG graphic -->
+                        <svg width="100%" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:0;left:0;"><ellipse cx="100" cy="30" rx="90" ry="20" fill="#38d9a9" fill-opacity="0.18"/><ellipse cx="100" cy="30" rx="60" ry="12" fill="#0ea5e9" fill-opacity="0.12"/></svg>
                         <div class="project-info-card">
                             <h3 class="project-title">WeatherNow</h3>
-                            <p class="project-description">Real-time weather data</p>
+                            <p class="project-description">Real-time weather app</p>
                             <div class="project-tech">JavaScript • API • CSS</div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Project 4: Social Media Clone -->
+            <!-- Project 4: Stadium876 -->
             <div class="item project-item" style="--position: 4" data-link="https://example.com/project4">
                 <div class="project-content">
-                    <div class="project-placeholder" data-project="Social Media Clone">
+                    <div class="project-placeholder" data-project="Stadium876">
+                        <!-- Decorative SVG graphic -->
+                        <svg width="100%" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:0;left:0;"><rect x="30" y="10" width="140" height="40" rx="20" fill="#f43f5e" fill-opacity="0.18"/><ellipse cx="100" cy="30" rx="60" ry="12" fill="#6366f1" fill-opacity="0.12"/></svg>
                         <div class="project-info-card">
-                            <h3 class="project-title">Social Media Clone</h3>
-                            <p class="project-description">Instagram-like platform</p>
-                            <div class="project-tech">Django • Python • PostgreSQL</div>
+                            <h3 class="project-title">Stadium876</h3>
+                            <p class="project-description">Online sports blog</p>
+                            <div class="project-tech">TypeScript • Firebase • Tailwind CSS</div>
                         </div>
                     </div>
                 </div>
@@ -139,9 +254,9 @@
                 Javari Whilby
             </h1>
             <!-- Professional title and description -->
-            <div class="subtitle">
+            <div class="subtitle" style="text-align:center;">
                 <h2>Software Engineering Student</h2>
-                <p>Passionate about creating innovative web solutions</p>
+                <p>Building thoughtful, efficient and impactful digital experiences.</p>
             </div>
             <!-- Placeholder for character model/avatar -->
             <div class="model"></div>
@@ -154,37 +269,34 @@
             <h2 class="section-title">My Projects</h2>
             <!-- Grid layout for detailed project cards -->
             <div class="projects-grid">
-                <!-- Project Card 1: E-Commerce Platform -->
+                <!-- Project Card 1: BelieveInTheDesigns -->
                 <div class="project-card">
-                    <div class="project-card-placeholder" data-project="E-Commerce Platform">
+                    <div class="project-card-placeholder" data-project="BelieveInTheDesigns">
                         <span class="card-placeholder-text">Project Image 1</span>
                     </div>
                     <div class="project-info">
-                        <h3>E-Commerce Platform</h3>
-                        <p>A full-featured e-commerce website built with React, Node.js, and MongoDB. Features include user authentication, shopping cart, payment integration, and admin dashboard.</p>
-                        <!-- Technology stack badges -->
+                        <h3>BelieveInTheDesigns</h3>
+                        <p>An e-commerce platform designed using TypeScript, Firebase, and Tailwind CSS. Features include user authentication, shopping cart, payment integration, and admin dashboard.</p>
                         <div class="tech-stack">
-                            <span class="tech">React</span>
-                            <span class="tech">Node.js</span>
-                            <span class="tech">MongoDB</span>
-                            <span class="tech">Stripe</span>
+                            <span class="tech">TypeScript</span>
+                            <span class="tech">Firebase</span>
+                            <span class="tech">Tailwind CSS</span>
                         </div>
                         <a href="https://example.com/project1" target="_blank" class="project-link">View Project</a>
                     </div>
                 </div>
-                <!-- Project Card 2: Task Management App -->
+                <!-- Project Card 2: Visitix -->
                 <div class="project-card">
-                    <div class="project-card-placeholder" data-project="Task Management App">
+                    <div class="project-card-placeholder" data-project="Visitix">
                         <span class="card-placeholder-text">Project Image 2</span>
                     </div>
                     <div class="project-info">
-                        <h3>Task Management App</h3>
-                        <p>A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.</p>
+                        <h3>Visitix</h3>
+                        <p>An online ticketing platform for listing and reselling event tickets, built using Firebase, TypeScript, and Tailwind CSS. Includes real-time updates, drag-and-drop, and team collaboration features.</p>
                         <div class="tech-stack">
-                            <span class="tech">React</span>
+                            <span class="tech">TypeScript</span>
                             <span class="tech">Firebase</span>
-                            <span class="tech">Material-UI</span>
-                            <span class="tech">JavaScript</span>
+                            <span class="tech">Tailwind CSS</span>
                         </div>
                         <a href="https://example.com/project2" target="_blank" class="project-link">View Project</a>
                     </div>
@@ -206,19 +318,18 @@
                         <a href="https://weathernow.info" target="_blank" class="project-link">View Project</a>
                     </div>
                 </div>
-                <!-- Project Card 4: Social Media Clone -->
+                <!-- Project Card 4: Stadium876 -->
                 <div class="project-card">
-                    <div class="project-card-placeholder" data-project="Social Media Clone">
+                    <div class="project-card-placeholder" data-project="Stadium876">
                         <span class="card-placeholder-text">Project Image 4</span>
                     </div>
                     <div class="project-info">
-                        <h3>Social Media Clone</h3>
-                        <p>A social media platform clone with image sharing, real-time messaging, user profiles, and social interaction features.</p>
+                        <h3>Stadium876</h3>
+                        <p>An online sports blog made with TypeScript, Firebase, and Tailwind CSS. Features image sharing, real-time messaging, user profiles, and social interaction features.</p>
                         <div class="tech-stack">
-                            <span class="tech">Django</span>
-                            <span class="tech">Python</span>
-                            <span class="tech">PostgreSQL</span>
-                            <span class="tech">WebSocket</span>
+                            <span class="tech">TypeScript</span>
+                            <span class="tech">Firebase</span>
+                            <span class="tech">Tailwind CSS</span>
                         </div>
                         <a href="https://example.com/project4" target="_blank" class="project-link">View Project</a>
                     </div>
@@ -241,11 +352,11 @@
                 <!-- Achievement statistics display -->
                 <div class="about-stats">
                     <div class="stat">
-                        <h3>15+</h3>
+                        <h3>5+</h3>
                         <p>Projects Completed</p>
                     </div>
                     <div class="stat">
-                        <h3>3+</h3>
+                        <h3>1+</h3>
                         <p>Years Experience</p>
                     </div>
                     <div class="stat">
@@ -270,30 +381,30 @@
                     <div class="skill-item">
                         <span class="skill-name">JavaScript</span>
                         <div class="skill-bar">
-                            <div class="skill-progress" data-width="90%"></div>
+                            <div class="skill-progress" data-width="80%"></div>
                         </div>
-                        <span class="skill-percentage">90%</span>
+                        <span class="skill-percentage">80%</span>
                     </div>
                     <div class="skill-item">
-                        <span class="skill-name">React</span>
+                        <span class="skill-name">TypeScript</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70%"></div>
+                        </div>
+                        <span class="skill-percentage">70%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">HTML5</span>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="85%"></div>
                         </div>
                         <span class="skill-percentage">85%</span>
                     </div>
                     <div class="skill-item">
-                        <span class="skill-name">Vue.js</span>
+                        <span class="skill-name">CSS3</span>
                         <div class="skill-bar">
-                            <div class="skill-progress" data-width="75%"></div>
+                            <div class="skill-progress" data-width="80%"></div>
                         </div>
-                        <span class="skill-percentage">75%</span>
-                    </div>
-                    <div class="skill-item">
-                        <span class="skill-name">HTML/CSS</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="95%"></div>
-                        </div>
-                        <span class="skill-percentage">95%</span>
+                        <span class="skill-percentage">80%</span>
                     </div>
                 </div>
                 
@@ -303,30 +414,30 @@
                     <div class="skill-item">
                         <span class="skill-name">Node.js</span>
                         <div class="skill-bar">
-                            <div class="skill-progress" data-width="80%"></div>
+                            <div class="skill-progress" data-width="65%"></div>
                         </div>
-                        <span class="skill-percentage">80%</span>
+                        <span class="skill-percentage">65%</span>
                     </div>
                     <div class="skill-item">
                         <span class="skill-name">Python</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="85%"></div>
-                        </div>
-                        <span class="skill-percentage">85%</span>
-                    </div>
-                    <div class="skill-item">
-                        <span class="skill-name">Django</span>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="75%"></div>
                         </div>
                         <span class="skill-percentage">75%</span>
                     </div>
                     <div class="skill-item">
-                        <span class="skill-name">Express.js</span>
+                        <span class="skill-name">Java</span>
                         <div class="skill-bar">
-                            <div class="skill-progress" data-width="78%"></div>
+                            <div class="skill-progress" data-width="60%"></div>
                         </div>
-                        <span class="skill-percentage">78%</span>
+                        <span class="skill-percentage">60%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Django</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="60%"></div>
+                        </div>
+                        <span class="skill-percentage">60%</span>
                     </div>
                 </div>
                 
@@ -334,32 +445,32 @@
                 <div class="skill-category">
                     <h3>Databases & Tools</h3>
                     <div class="skill-item">
+                        <span class="skill-name">PostgreSQL</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="60%"></div>
+                        </div>
+                        <span class="skill-percentage">60%</span>
+                    </div>
+                    <div class="skill-item">
                         <span class="skill-name">MongoDB</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="65%"></div>
+                        </div>
+                        <span class="skill-percentage">65%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">GitHub</span>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="80%"></div>
                         </div>
                         <span class="skill-percentage">80%</span>
                     </div>
                     <div class="skill-item">
-                        <span class="skill-name">PostgreSQL</span>
+                        <span class="skill-name">Firebase</span>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="70%"></div>
                         </div>
                         <span class="skill-percentage">70%</span>
-                    </div>
-                    <div class="skill-item">
-                        <span class="skill-name">Git/GitHub</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="90%"></div>
-                        </div>
-                        <span class="skill-percentage">90%</span>
-                    </div>
-                    <div class="skill-item">
-                        <span class="skill-name">Docker</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="65%"></div>
-                        </div>
-                        <span class="skill-percentage">65%</span>
                     </div>
                 </div>
             </div>
@@ -379,19 +490,15 @@
                     <div class="contact-details">
                         <div class="contact-item">
                             <span class="contact-icon">📧</span>
-                            <span>javari.whilby@email.com</span>
+                            <span>khalilwhilby@gmail.com</span>
                         </div>
                         <div class="contact-item">
                             <span class="contact-icon">📱</span>
-                            <span>+1 (555) 123-4567</span>
+                            <span>1 (876) 275 4916</span>
                         </div>
                         <div class="contact-item">
                             <span class="contact-icon">📍</span>
-                            <span>Your City, Country</span>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">💼</span>
-                            <span>linkedin.com/in/javari-whilby</span>
+                            <span>Kingston, Jamaica</span>
                         </div>
                     </div>
                 </div>
