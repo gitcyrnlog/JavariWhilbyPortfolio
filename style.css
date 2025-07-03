@@ -145,7 +145,7 @@ body {
     text-align: center;
     overflow: visible; /* Allow content to extend beyond for scrolling */
     position: relative;
-    padding-top: 95px; /* Adjusted for fixed navbar height + margin */
+    padding-top: 140px; /* Increased space below navbar for all devices */
 }
 
 /* 3D Rotating Project Carousel - Enhanced */
@@ -1219,7 +1219,7 @@ body::before {
     
     /* Mobile-optimized banner - fix scrolling and carousel positioning */
     .banner {
-        padding-top: 110px; /* Adjusted for compact mobile navbar */
+        padding-top: 160px; /* Even more space for mobile, since navbar is more compact */
         height: 100vh;
         overflow-y: auto; /* Allow scrolling */
         position: relative;
@@ -1489,7 +1489,7 @@ body::before {
     
     .nav-link:active {
         transform: scale(0.95);
-        background: linear-gradient(135deg, #25283B 0%, #1a1d2e 100%);
+        background: linear-gradient(135deg, #25283B, 0%, #1a1d2e, 100%);
         color: white;
     }
     
