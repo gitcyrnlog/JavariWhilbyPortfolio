@@ -76,11 +76,11 @@ body {
     font-family: 'ICA Rubrik';
     font-size: 2.5rem; /* Slightly larger */
     font-weight: 900; /* Bolder weight */
-    color: #25283B;
+    color: #8c90a8;
     text-decoration: none;
     letter-spacing: -0.02em; /* Tighter letter spacing */
     margin-right: auto; /* Push to far left */
-    background: linear-gradient(135deg, #25283B 0%, #1a1d2e 100%);
+    background: linear-gradient(135deg, #bebfc4 0%, #6c6f81 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
