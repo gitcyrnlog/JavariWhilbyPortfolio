@@ -488,10 +488,35 @@
         }
 
         // Update active nav link based on scroll position and scroll indicator
+        let lastScrollTop = 0;
+        let navbar = document.querySelector('.navbar');
+        let scrollTimeout;
+        
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-link');
             const scrollIndicator = document.querySelector('.scroll-indicator');
+            
+            // Mobile navbar hide/show logic
+            const isMobile = window.innerWidth <= 768;
+            if (isMobile && navbar) {
+                const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // Clear any existing timeout
+                clearTimeout(scrollTimeout);
+                
+                if (currentScrollTop > lastScrollTop && currentScrollTop > 100) {
+                    // Scrolling down - hide navbar after a slight delay
+                    scrollTimeout = setTimeout(() => {
+                        navbar.classList.add('navbar-hidden');
+                    }, 150);
+                } else if (currentScrollTop < lastScrollTop || currentScrollTop <= 100) {
+                    // Scrolling up or near top - show navbar immediately
+                    navbar.classList.remove('navbar-hidden');
+                }
+                
+                lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // For Mobile or negative scrolling
+            }
             
             // Update scroll progress indicator
             if (scrollIndicator) {
@@ -552,9 +577,10 @@
                     });
                 });
                 
-                // Prevent scroll bounce on iOS
+                // Prevent scroll bounce on iOS but allow normal scrolling
                 document.addEventListener('touchmove', function(e) {
-                    if (e.target.closest('.banner')) {
+                    // Only prevent default for specific elements that shouldn't scroll
+                    if (e.target.closest('.navbar') || e.target.closest('.project-item')) {
                         e.preventDefault();
                     }
                 }, { passive: false });
@@ -572,6 +598,17 @@
                         }, 100);
                     }
                 }, 500);
+            });
+            
+            // Handle window resize - reset navbar state when switching between mobile/desktop
+            window.addEventListener('resize', function() {
+                const navbar = document.querySelector('.navbar');
+                const isMobileView = window.innerWidth <= 768;
+                
+                if (!isMobileView && navbar) {
+                    // Reset navbar position when switching to desktop
+                    navbar.classList.remove('navbar-hidden');
+                }
             });
             
             // Improve scroll performance on mobile
