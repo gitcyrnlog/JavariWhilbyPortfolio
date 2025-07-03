@@ -518,6 +518,86 @@
                 }
             });
         });
+        
+        // Mobile-specific optimizations
+        function initMobileOptimizations() {
+            // Detect mobile device
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            const isTouch = 'ontouchstart' in window;
+            
+            if (isMobile || isTouch) {
+                // Add mobile class to body
+                document.body.classList.add('mobile-device');
+                
+                // Optimize carousel rotation speed for mobile
+                const slider = document.getElementById('projectSlider');
+                if (slider) {
+                    slider.style.animationDuration = '25s'; // Slower rotation for better mobile viewing
+                }
+                
+                // Add touch event handling for project cards
+                const projectItems = document.querySelectorAll('.project-item');
+                projectItems.forEach(item => {
+                    item.addEventListener('touchstart', function() {
+                        this.style.transform = 'scale(0.98)';
+                    });
+                    
+                    item.addEventListener('touchend', function() {
+                        this.style.transform = '';
+                        // Navigate to project link on tap
+                        const link = this.dataset.link;
+                        if (link) {
+                            window.open(link, '_blank');
+                        }
+                    });
+                });
+                
+                // Prevent scroll bounce on iOS
+                document.addEventListener('touchmove', function(e) {
+                    if (e.target.closest('.banner')) {
+                        e.preventDefault();
+                    }
+                }, { passive: false });
+            }
+            
+            // Handle orientation changes
+            window.addEventListener('orientationchange', function() {
+                setTimeout(() => {
+                    // Recalculate carousel position after orientation change
+                    const slider = document.getElementById('projectSlider');
+                    if (slider) {
+                        slider.style.animation = 'none';
+                        setTimeout(() => {
+                            slider.style.animation = '';
+                        }, 100);
+                    }
+                }, 500);
+            });
+            
+            // Improve scroll performance on mobile
+            let ticking = false;
+            function updateScrollIndicator() {
+                const scrolled = window.scrollY;
+                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = scrolled / maxScroll;
+                
+                const indicator = document.querySelector('.scroll-indicator');
+                if (indicator) {
+                    indicator.style.transform = `scaleX(${progress})`;
+                }
+                ticking = false;
+            }
+            
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    requestAnimationFrame(updateScrollIndicator);
+                    ticking = true;
+                }
+            });
+        }
+        
+        // Initialize mobile optimizations when DOM is loaded
+        initMobileOptimizations();
     </script>
     
 </body>
