@@ -45,13 +45,6 @@ A modern, interactive portfolio website showcasing software engineering projects
 ├── index.html          # Main HTML file with complete portfolio structure
 ├── style.css           # Comprehensive styling with animations and responsive design
 ├── README.md           # Project documentation (this file)
-├── images/            # Image assets directory
-│   ├── bg.png         # Background pattern image
-│   ├── dragon_1.jpg   # Project showcase image 1 (E-Commerce Platform)
-│   ├── dragon_2.jpg   # Project showcase image 2 (Task Management App)
-│   ├── dragon_3.jpg   # Project showcase image 3 (Weather Dashboard)
-│   ├── dragon_4.jpg   # Project showcase image 4 (Social Media Clone)
-│   └── model.png      # Additional model/avatar image
 ```
 
 ## 🎯 Key Components
