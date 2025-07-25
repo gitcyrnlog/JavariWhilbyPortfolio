@@ -188,7 +188,7 @@
     <!-- Main Banner Section -->
     <section id="home" class="banner">
         <!-- 3D Rotating Project Carousel - displays 4 featured projects in a cylinder formation -->
-        <div class="slider" style="--quantity: 4" id="projectSlider">
+        <div class="slider" id="projectSlider">
             <!-- Project 1: BelieveInTheDesigns -->
             <div class="item project-item" style="--position: 1" data-link="https://gitcyrnlog.github.io/glowing-lamp">
                 <div class="project-content">
@@ -269,22 +269,6 @@
                             <span class="tech">Tailwind CSS</span>
                         </div>
                         <a href="https://gitcyrnlog.github.io/glowing-lamp" target="_blank" class="project-link">View Project</a>
-                    </div>
-                </div>
-                <!-- Project Card 2: Visitix -->
-                <div class="project-card">
-                    <div class="project-card-placeholder" data-project="Visitix">
-                        <span class="card-placeholder-text">Project Image 2</span>
-                    </div>
-                    <div class="project-info">
-                        <h3>Visitix</h3>
-                        <p>An online ticketing platform for listing and reselling event tickets, built using Firebase, TypeScript, and Tailwind CSS. Includes real-time updates, drag-and-drop, and team collaboration features.</p>
-                        <div class="tech-stack">
-                            <span class="tech">TypeScript</span>
-                            <span class="tech">Firebase</span>
-                            <span class="tech">Tailwind CSS</span>
-                        </div>
-                        <a href="https://example.com/project2" target="_blank" class="project-link">View Project</a>
                     </div>
                 </div>
                 <!-- Project Card 3: WeatherNow -->
@@ -530,7 +514,17 @@
 
         // Project slider hover functionality - pause animation on hover
         const slider = document.getElementById('projectSlider');
-        const projectItems = document.querySelectorAll('.project-item');
+        const projectItems = Array.from(document.querySelectorAll('.project-item'));
+
+        // Dynamically set --quantity and --position for even distribution
+        function updateCarouselDistribution() {
+            const count = projectItems.length;
+            if (slider) slider.style.setProperty('--quantity', count);
+            projectItems.forEach((item, idx) => {
+                item.style.setProperty('--position', idx + 1);
+            });
+        }
+        updateCarouselDistribution();
 
         projectItems.forEach(item => {
             // Pause rotation when mouse enters project
