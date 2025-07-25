@@ -719,7 +719,7 @@
         initMobileOptimizations();
         // EmailJS contact form handler
         (function() {
-            emailjs.init('YOUR_EMAILJS_USER_ID'); // <-- Replace with your EmailJS user ID
+            emailjs.init('B3riz2iMbmzyttEky'); 
         })();
 
         document.getElementById('contactForm').addEventListener('submit', function(e) {
@@ -727,7 +727,7 @@
             const form = this;
             const status = document.getElementById('formStatus');
             status.textContent = 'Sending...';
-            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form)
+            emailjs.sendForm('service_fyqgbuh', 'template_l5gmpch', form)
                 .then(function() {
                     status.style.color = 'green';
                     status.textContent = 'Message sent successfully!';
