@@ -30,7 +30,7 @@ A modern, interactive portfolio website showcasing software engineering projects
 - **Smooth Animations**: CSS transitions and keyframe animations
 - **Glassmorphism Effects**: Modern backdrop filters and transparency
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **HTML5**: Semantic markup and structure
 - **CSS3**: Advanced styling with CSS Grid, Flexbox, and animations
@@ -38,7 +38,7 @@ A modern, interactive portfolio website showcasing software engineering projects
 - **Custom Fonts**: Google Fonts integration
 - **Responsive Design**: Mobile-first approach
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 /
@@ -47,7 +47,7 @@ A modern, interactive portfolio website showcasing software engineering projects
 ├── README.md           # Project documentation (this file)
 ```
 
-## 🎯 Key Components
+## Key Components
 
 ### 1. Navigation System
 - Fixed-position navbar with smooth scroll navigation
@@ -70,7 +70,7 @@ A modern, interactive portfolio website showcasing software engineering projects
 - Grid layout for contact information
 - Professional design with gradient backgrounds
 
-## 🚀 Getting Started
+## Getting Started
 
 1. **Clone or download** the repository
 2. **Open `index.html`** in a web browser
@@ -80,27 +80,27 @@ A modern, interactive portfolio website showcasing software engineering projects
    - Modify contact information
    - Adjust skill percentages in the proficiencies section
 
-## 📱 Responsive Breakpoints
+## Responsive Breakpoints
 
 - **Desktop**: 1024px and above
 - **Tablet**: 768px - 1023px
 - **Mobile**: 767px and below
 
-## 🎨 Color Palette
+## Color Palette
 
 - **Primary Dark**: #25283B (Navigation, headings, accents)
 - **Primary Light**: #D2D2D2 (Background, secondary text)
 - **Background**: Linear gradients between primary colors
 - **Accent**: Various shades of the primary palette
 
-## ⚡ Performance Features
+## Performance Features
 
 - **Smooth Scrolling**: CSS and JavaScript scroll behavior
 - **Optimized Animations**: Hardware-accelerated CSS transforms
 - **Lazy Loading**: Intersection Observer for skill bar animations
 - **Responsive Images**: Optimized for different screen sizes
 
-## 🔧 Customization
+## Customization
 
 ### Adding New Projects
 1. Add project item to the carousel in `index.html`
@@ -118,11 +118,11 @@ A modern, interactive portfolio website showcasing software engineering projects
 2. Modify form action attribute for form submission
 3. Add social media links as needed
 
-## 📄 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 👨‍💻 Author
+## Author
 
 **Javari Whilby**
 - Software Engineering Student
